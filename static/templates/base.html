@@ -1,0 +1,39 @@
+{% load static tailwind_tags %}
+
+<html  lang="en">
+
+    <head>
+        <title>{% block title %}TechTales{% endblock %}</title>
+        {% tailwind_css %}
+    </head>
+
+    <body>
+        <header class="border-b border-gray-300 bg-white py-3 px-3 flex items-center justify-between">
+            <div class="flex items-center">
+                <img src="{% static 'images/logo.png' %}" alt="Henrique Malta" class="w-8 h-8" />
+                <h1 class="text-gray-700 font-bold text-lg ml-2">Henrique Malta</h1>
+            </div>
+            <nav class="py-4 hidden md:flex items-center space-x-4">
+                    <a href="{% url 'home' %}" class="px-4 py-2 rounded font-bold {% if current_page == 'home' %}text-black border-b-2{% else %}text-slate-500{% endif %}">Home</a>
+                    <a href="" class="px-4 py-2 rounded font-bold {% if current_page == 'ola' %}text-black border-b-2{% else %}text-slate-500{% endif %}">Blog</a>
+            <a href="" class="px-4 py-2 rounded font-bold {% if current_page == 'ola' %}text-black border-b-2{% else %}text-slate-500{% endif %}">Projects</a>
+            </nav>
+        </header>
+
+        <div class="text-center">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        <footer class="bg-gray-100 text-gray-800 text-center">
+            <div>
+                <p>
+                    &copy; {% now "Y" %} TechTales. All rights reserved.
+                </p>
+                <p>Designed by TechTales</p>
+            </div>
+        </footer>
+
+    </body>
+
+</html>

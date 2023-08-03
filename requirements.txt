@@ -1,0 +1,6 @@
+asgiref
+Django
+django-browser-reload
+django-tailwind
+gunicorn==21.2.0
+sqlparse
